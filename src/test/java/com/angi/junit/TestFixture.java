@@ -19,8 +19,12 @@ public class TestFixture {
 		assertTrue(true);
 	}
 
-	@Ignore("this test method isn't working now")
 	@Test(expected = IndexOutOfBoundsException.class)
+	public void exception() {
+		new ArrayList<Object>().get(0);
+	}
+
+	@Ignore("this test method isn't working now")
 	public void empty() {
 		new ArrayList<Object>().get(0);
 	}
