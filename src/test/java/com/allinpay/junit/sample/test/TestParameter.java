@@ -1,10 +1,9 @@
 package com.allinpay.junit.sample.test;
 
-import static org.junit.Assert.assertTrue;
-
 import java.util.Arrays;
 import java.util.Collection;
 
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,16 +32,16 @@ public class TestParameter {
 	@Parameters
 	public static Collection<Object[]> words() {
 		return Arrays.asList(new Object[][] { { new Money(23, "CHF"), new Money(11, "CHF") },
-				{ new Money(28, "CHF"), new Money(16, "CHF") }
-
-		});
+				{ new Money(28, "CHF"), new Money(16, "CHF") } });
 	}
 
 	/**
 	 * 参数化测试必须的构造函数
 	 * 
-	 * @paramexpected 期望的测试结果，对应参数集中的第一个参数
-	 * @paramtarget 测试数据，对应参数集中的第二个参数
+	 * @param expected
+	 *            期望的测试结果，对应参数集中的第一个参数
+	 * @param target
+	 *            测试数据，对应参数集中的第二个参数
 	 */
 	public TestParameter(Money expected, Money target) {
 		this.expected = expected;
@@ -52,7 +51,7 @@ public class TestParameter {
 	@Test
 	public void testAdd() {
 		System.out.println("testAdd");
-		assertTrue(expected.getValue() == f12CHF.add(target).getValue());
+		Assert.assertTrue(expected.getValue() == f12CHF.add(target).getValue());
 	}
 
 }
