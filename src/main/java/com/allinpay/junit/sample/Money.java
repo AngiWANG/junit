@@ -1,4 +1,4 @@
-package com.angi.junit;
+package com.allinpay.junit.sample;
 
 public class Money {
 

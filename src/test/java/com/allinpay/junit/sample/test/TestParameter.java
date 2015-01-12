@@ -1,4 +1,4 @@
-package com.angi.junit;
+package com.allinpay.junit.sample.test;
 
 import static org.junit.Assert.assertTrue;
 
@@ -11,13 +11,12 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-/**
- * @author Administrator 第一个注意点
- */
+import com.allinpay.junit.sample.Money;
+
 @RunWith(Parameterized.class)
 public class TestParameter {
 	private static Money f12CHF;
-	// 第二个注意点
+
 	private Money expected;
 	private Money target;
 
@@ -27,7 +26,7 @@ public class TestParameter {
 	}
 
 	/**
-	 * 第三个注意点
+	 * 测试数据构造
 	 * 
 	 * @return
 	 */
@@ -40,7 +39,7 @@ public class TestParameter {
 	}
 
 	/**
-	 * 第四个注意点 参数化测试必须的构造函数
+	 * 参数化测试必须的构造函数
 	 * 
 	 * @paramexpected 期望的测试结果，对应参数集中的第一个参数
 	 * @paramtarget 测试数据，对应参数集中的第二个参数
@@ -50,12 +49,10 @@ public class TestParameter {
 		this.target = target;
 	}
 
-	/**
-	 * 实际需要测试的方法
-	 */
 	@Test
-	public void add() {
-		assertTrue(expected.equals(f12CHF.add(target)));
+	public void testAdd() {
+		System.out.println("testAdd");
+		assertTrue(expected.getValue() == f12CHF.add(target).getValue());
 	}
 
 }
